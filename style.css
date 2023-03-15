@@ -1,0 +1,256 @@
+body {
+    background-color: #f2f5fa;
+    font-family: sans-serif;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.container {
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.todo_list {
+    max-width: 400px;
+    display: block;
+    margin: 0 auto 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px #e5eeff;
+    background-color: #ffffff;
+    padding: 23px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+    font-family: 'Commissioner-Medium', sans-serif;
+}
+
+.create_new_todo {
+    text-align: center;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 54px;
+
+    font-family: 'Commissioner-Regular', sans-serif;
+
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #dbe5f3;
+
+    box-sizing: border-box;
+
+    outline: 0;
+}
+
+input[type=text]:focus {
+    outline: 1px solid #4c6cdd;
+}
+
+button {
+    margin-top: 10px;
+    padding: 16px 32px;
+
+    width: max-content;
+    cursor: pointer;
+
+    background-color: #254ac7;
+    color: #ffffff;
+    border-radius: 4px;
+
+    border: 0;
+}
+
+button[disabled]{
+  cursor: default;
+  opacity: 0.4;
+}
+
+.todo {
+    padding-left: 0;
+}
+
+.todo li {
+    padding: 1em 0;
+    list-style-type: none;
+    position: relative;
+}
+
+.todo li:hover .delete{
+  opacity: 1;
+}
+
+.todo li:not(:last-child) {
+    border-bottom: 1px solid #dbe5f3;
+}
+
+.todo_list-footer{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.remove_all{
+  padding: 10px;
+  background-color: #ff0000;
+}
+
+.remove_finish{
+  padding: 10px;
+}
+
+/*************** Checkbox ***************/
+
+.checkbox {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .checkbox *,
+  .checkbox *::before,
+  .checkbox *::after {
+    box-sizing: border-box;
+  }
+  
+  .checkbox-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .checkbox-check {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #BDC6CD;
+    margin-right: 8px;
+  }
+  .checkbox-check::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+  }
+  .checkbox-input[type="checkbox"] + .checkbox-check {
+    border-radius: 4px;
+  }
+  .checkbox-input[type="checkbox"] + .checkbox-check::after {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+    background-image: url('assets/icons/check_white.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .checkbox-input[type="radio"] + .checkbox-check {
+    border-radius: 50%;
+  }
+  .checkbox-input[type="radio"] + .checkbox-check::after {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: -3px;
+    margin-left: -3px;
+    background: #fff;
+  }
+  
+  .checkbox-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+   .checkbox-input:checked + .checkbox-check {
+    border-color: #254ac7;
+    background: #254ac7;
+  }
+  .checkbox:hover .checkbox-input + .checkbox-check {
+    border-color: #254ac7;
+  }
+   .checkbox-input:focus + .checkbox-check,
+   .checkbox-input:focus-visible + .checkbox-check {
+    border-color: #99D1FF;
+    border-width: 2px;
+  }
+   .checkbox-input:checked:focus + .checkbox-check,
+   .checkbox-input:checked:focus-visible + .checkbox-check {
+    border-color: #99D1FF;
+    background: #0C6ED6;
+    border-width: 2px;
+  }
+   .checkbox-input:active + .checkbox-check {
+    border-color: #0C6ED6;
+  }
+   .checkbox-input:checked:active + .checkbox-check {
+    background: #0C6ED6;
+  }
+   .checkbox-input:disabled + .checkbox-check {
+    border-color: #DEE3E8;
+  }
+   .checkbox-input:checked:disabled + .checkbox-check {
+    border-color: #F2F2F2;
+    background: #F2F2F2;
+  }
+   .checkbox-input:disabled ~ .checkbox-text {
+    color: #BDC6CD;
+  }
+   .checkbox-input:checked:disabled ~ .checkbox-text {
+    color: #BDC6CD;
+  }
+
+  .checked .checkbox-text{
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+
+.important .checkbox-text {
+    font-weight: bold;
+    color: #ff0000 !important;
+}
+
+.delete{
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 16px;
+  height: 16px;
+  background: url("assets/icons/dismiss.svg") center center no-repeat;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: opacity 0.1s ease-out;
+  opacity: 0;
+}
+
+time{
+  color: #a2b6db;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  font-family: 'Commissioner-Regular', sans-serif;
+
+  position: absolute;
+  left: 28px;
+  bottom: 0px;
+}
+
+.count-task p{
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #64738e;
+  margin: 10px 0 10px;
+}
